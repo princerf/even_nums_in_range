@@ -1,5 +1,5 @@
 from __future__ import print_function
-import sys
+import sys , os
 
 def print_evens():
     '''
@@ -36,3 +36,15 @@ def print_evens():
 # make usable for both script and module mode
 if __name__ == '__main__':
     print_evens()
+
+    print('*'*50,'\n','Enter any key to exit or enter \'h\' for HELP/README')
+    inp = raw_input('> ').lower()
+    if inp == 'h':
+        try:
+            with open('./README.md','r') as file:
+                readmeFile=file.read()
+                print(readmeFile)
+        except IOError:
+            print('\n','You should change the working directory to where files there')
+        except:
+            print('\n','sorry, There is not a help or readme file')
